@@ -1,0 +1,44 @@
+.sidebar-background{
+    background-color: #000000;
+    /* box-shadow: 5px 5px 5px 2px rgba(180, 171, 171, 0.8); */
+    height:100vh;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+  .nav-item-mobile-link {
+    font-size:25px;
+    font-weight: bold;
+    color: #382e2e;
+    margin-top: 10px;
+    margin:5px;
+    align-items: center;
+  }
+  
+  .profile-img {
+    width: 3vw;
+    height:6vh;
+    border-radius: 50%;
+    margin-top:10px;
+  }
+  .card-icons{
+    display: flex;
+    flex-direction: column;     
+  }
+  .icons{
+    margin-top:40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-item{
+    display: flex;
+    flex-direction: row;
+  }
+  .sidebar-description{
+    font-size: 20px;
+    font-family: "roboto";
+    color:#251b1b;
+    margin:10px;
+  }
