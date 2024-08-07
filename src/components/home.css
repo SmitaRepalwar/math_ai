@@ -2,6 +2,8 @@
     display: flex;
     background-color: #000000;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar-con{
@@ -31,19 +33,21 @@
 }
 .body-container-without-full-sidebar{
     width: 93vw;
-    height: 99vh;
+    height: 97vh;
     position: relative;
     background-color: #ffffff;
-    padding: "10px";
-    border-radius: 20px;
+    padding: "20px";
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 .body-container-with-full-sidebar{
     width: 80vw;
-    height: 99vh;
+    height: 97vh;
     position: relative;
     background-color: #ffffff;
-    padding: "10px";
-    border-radius: 20px;
+    padding: "20px";
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .header-section{
     position: relative;
@@ -57,4 +61,39 @@
     width: 30vw;
     
     position: relative;
+}
+
+.input-container{
+    position: fixed;
+    top: 80%;
+    left: 30%;
+    width: 45%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.text-input{
+    height: 2em;
+    width: 100%;
+    outline: none;
+    border-width: 0px;
+}
+
+.input-button{
+    background-color: rgb(138, 226, 226);
+    outline: none;
+    border-width: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    width: 3em;
+    margin-left: auto;
+    align-self: flex-end;
+    padding: 2px;
+    border-radius: 2px;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SideBar from "./sidebar";
 import { generateResponse, uploadImage, uploadPDF } from '../services/apiServices';
+import { BsSendFill } from "react-icons/bs"
 import "./home.css"
  
 
@@ -61,16 +62,21 @@ export const Home = () =>{
               <SideBar onChangesidebar={onChangesidebar} isExpanded = {isExpanded} />
             </div>
             <div className={containerClassName}>
-                <h1>Math Solver</h1>
                 <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your message"
-            />
-            <button type="submit">Send</button>
+          <div className='input-container' >        
+              <textarea
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Type your message"
+                className='text-input'
+              />
+              <button className='input-button' type="submit">
+               <BsSendFill/>
+              </button>
+            </div>  
           </form>
+          <p>{input}</p>
           <p>Response: {response}</p>
      
           <h2>Upload Image</h2>
