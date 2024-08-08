@@ -1,11 +1,10 @@
-import { RiComputerLine } from "react-icons/ri";
-import { FaRegQuestionCircle } from "react-icons/fa";
-import { FaCalendarDay } from "react-icons/fa";
-import { LuBuilding2 } from "react-icons/lu";
-import { AiFillDollarCircle } from "react-icons/ai";
-import { FaHeadphones } from "react-icons/fa6";
-import { IoIosSettings } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
+import { CiSquarePlus } from "react-icons/ci";
+import { FaRegFilePdf } from "react-icons/fa";
+import { TfiWrite } from "react-icons/tfi";
+import { TfiPencilAlt } from "react-icons/tfi";
+import { BsPersonWorkspace } from "react-icons/bs";
+import { RiChatHistoryLine } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
 import "./sidebar.css"
 
 const SideBar=(props)=>{
@@ -19,45 +18,43 @@ const SideBar=(props)=>{
 
     return(
 
-       <div className="sidebar-background" onClick={sidebarToggle}>
+        <div className="sidebar-background" onClick={sidebarToggle}>
         <div className="card-icons">
             <div className="profile-success-container">
-                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-about-me-img.png" alt="profile" className="profile-img" />
+                <img className="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHiKtyhFjc7Wtri86aOB_pMsz49PFPTTnedFrt6NrBMKjwFHc1" />
+                {isExpanded && <h1 className="pop-heading">PopAi</h1>}
             </div>
             <div className="icons">
-                <div className="sidebar-item">
-                    <CiSearch className="nav-item-mobile-link"/> 
-                    {isExpanded && <p className="sidebar-description">Search</p>}
+             <div className="sidebar-item chat-icon">
+                    <CiSquarePlus   className="nav-item-mobile-link"/> 
+                    {isExpanded && <p className="sidebar-description">New Chat</p>}
                 </div>
                 <div className="sidebar-item">
-                    <RiComputerLine className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Home</p>}
+                    <FaRegFilePdf  className="nav-item-mobile-link"/> 
+                    {isExpanded && <p className="sidebar-description">Chat PDF</p>}
                 </div>
                 <div className="sidebar-item">
-                    <FaRegQuestionCircle className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Help</p>}
+                    <TfiWrite  className="nav-item-mobile-link"/>
+                    {isExpanded && <p className="sidebar-description">AI Presentation</p>}
                 </div>
                 <div className="sidebar-item">
-                    <FaCalendarDay className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Calender</p>}
+                    <TfiPencilAlt className="nav-item-mobile-link"/>
+                    {isExpanded && <p className="sidebar-description">AI Writer</p>}
                 </div>
                 <div className="sidebar-item">
-                    <LuBuilding2 className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Recent Releases</p>}
+                    <BsPersonWorkspace className="nav-item-mobile-link"/>
+                    {isExpanded && <p className="sidebar-description">Workspace</p>}
                 </div>
                 <div className="sidebar-item">
-                    <AiFillDollarCircle className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Money</p>}
+                    <RiChatHistoryLine className="nav-item-mobile-link"/>
+                    {isExpanded && <p className="sidebar-description">Chat History</p>}
                 </div>
-                <div className="sidebar-item">
-                    <FaHeadphones className="nav-item-mobile-link"/>
-                    {isExpanded && <p className="sidebar-description">Music</p>}
-                </div>
+                
             </div>
          </div>
-         <div className="sidebar-item">
-            <IoIosSettings className="nav-item-mobile-link" />
-            {isExpanded && <p className="sidebar-description">Settings</p>}
+         <div className="sidebar-item last-item">
+            <CgProfile className="nav-item-mobile-link" />
+            {isExpanded && <p className="sidebar-description">Profile</p>}
         </div> 
       </div> 
     )
