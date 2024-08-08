@@ -11,6 +11,7 @@ export const Home = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [response, setResponse] = useState('');
   const [isExpanded, setExpand] = useState(false);
+  const [imageSrc, setImageSrc] = useState(null);
 
   const imageInputRef = useRef(null);
   const pdfInputRef = useRef(null);
@@ -32,10 +33,20 @@ export const Home = () => {
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
+    setIsSubmitted(true)
     if (file) {
       try {
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImageSrc(reader.result);
+        };
+        reader.readAsDataURL(file);
+
         const res = await uploadImage(file);
-        console.log('Image base64:', res.image_base64);
+        console.log('Image base64:', res);
+        setResponse(JSON.stringify(res))
+
       } catch (error) {
         console.error('Error uploading image:', error);
       }
@@ -44,10 +55,13 @@ export const Home = () => {
 
   const handlePDFUpload = async (e) => {
     const file = e.target.files[0];
+    // setInput(file)
+    setIsSubmitted(true)
     if (file) {
       try {
         const res = await uploadPDF(file);
         console.log('PDF images base64:', res.images_base64);
+        setResponse(JSON.stringify(res))
       } catch (error) {
         console.error('Error uploading PDF:', error);
       }
@@ -81,16 +95,22 @@ export const Home = () => {
             </button>
           </div>
         </form>
-        {isSubmitted &&
-          <>
-            <div>
-              <p>{input}</p>
+          {isSubmitted &&
+            <div className='response-container'>
+              <div>
+                <p>{input}</p>
+              </div>
+              {imageSrc && (
+            <div className='image-preview'>
+              <img src={imageSrc} alt="Selected" style={{ maxWidth: '100%', height: 'auto' }} />
             </div>
-            <div>
-              <p>{response}</p>
-            </div>
-          </>
-        }
+              )}
+              <div>
+                <p>{response}</p>
+              </div>
+              </div>
+          }
+        
         {!isSubmitted &&
           <div className='file-main-container'>
             <div className='file-container'>
@@ -99,7 +119,7 @@ export const Home = () => {
                   type="file"
                   accept="image/*"
                   ref={imageInputRef}
-                  style={{ display: 'none' }}
+                  // style={{ display: 'none' }}
                   onChange={handleImageUpload}
                 />
               </div>
@@ -108,7 +128,7 @@ export const Home = () => {
                   type="file"
                   accept=".pdf"
                   ref={pdfInputRef}
-                  style={{ display: 'none' }}
+                  // style={{ display: 'none' }}
                   onChange={handlePDFUpload}
                 />
               </div>
